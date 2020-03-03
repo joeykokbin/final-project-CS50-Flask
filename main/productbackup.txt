@@ -1,0 +1,63 @@
+sell_id : 1
+prodName : Tiramisu Heaven
+prodDesc : Tis' the season to be jolly about our beloved Tiramisu cake! Well loved by many of our loyal customers, the cream on the cake is to die for.. Don't miss out the opportunity now!
+prodPrice : 49.9
+prodPath : seller1product1img1.jpg,seller1product1img2.jpg,seller1product1img3.jpg,
+listdate : datetime.date(2020, 1, 1)
+newprod
+sell_id : 1
+prodName : CNY 2020 Mahjong Cake
+prodDesc : Do you ever want to feel what it is like to win prizes? or to even win in mahjong? Look no further, once you shout "chi" and eat this cake the next mahjong game will be full of "hu" for you! \r\n\r\nYou know whats better? PULLING OUT MONEY!!!$$$$
+prodPrice : 99.9
+prodPath : seller1product2img1.jpg,seller1product2img2.jpg,
+listdate : datetime.date(2020, 1, 1)
+newprod
+sell_id : 1
+prodName : Oriental Cheongsam Longevity
+prodDesc : Get dressed for the occasion with this elegantly "tailored" cheongsam longevity cake! Featuring handmade oriental buttons, cherry blossoms, a gold acrylic topper and fondant peaches, this celebratory cake will certainly be the best dressed at the cny party!
+prodPrice : 140.0
+prodPath : seller1product3img1.jpg,seller1product3img2.jpg,seller1product3img3.jpg,
+listdate : datetime.date(2020, 1, 1)
+newprod
+sell_id : 1
+prodName : Chocolate Cherry Elegance
+prodDesc : Looking for something luxurious yet simple and elegant? This decadent chocolate-coated cake with gold painted cherries on top will be sure to be the star of your table!
+prodPrice : 148.0
+prodPath : seller1product4img1.jpg,seller1product4img2.jpg,
+listdate : datetime.date(2020, 1, 1)
+newprod
+sell_id : 1
+prodName : Guardians of the Galaxy
+prodDesc : From left: Chocolate milky way, Salted caramel cookie, Vanilla basque wonder, Creme Brulee (in a cake). These 4 guardians of the galaxy will surely defend your reputation as the "cake afficionado" of your group!
+prodPrice : 99.9
+prodPath : seller1product5img1.jpg,
+listdate : datetime.date(2020, 1, 4)
+newprod
+sell_id : 1
+prodName : Taste o' Goodness
+prodDesc : From left: Chocolate heaven, Caramel love , Sweety pie, Oreo green tea. \r\n\r\nBe mesmerised by these luscious cakes as you plan for birthdays or events for your special one! These cakes are definitely worth every bite, and every dollar spent. Prices are for per cake.
+prodPrice : 119.9
+prodPath : seller1product6img1.jpg,
+listdate : datetime.date(2020, 1, 4)
+newprod
+sell_id : 1
+prodName : Galaxy Cake
+prodDesc : Styling: This cake is frosted with smooth buttercream, in tones of chocolate, chocolate, and chocolate to sufficiently satiate your desire for a heavenly cake, topped with a magical surprise!. Decorated with splashes of gold edible flakes.
+prodPrice : 50.0
+prodPath : seller1product7img1.jpg,
+listdate : datetime.date(2020, 1, 5)
+newprod
+sell_id : 1
+prodName : Yin & Yang
+prodDesc : Cheesecake, deliciously covered in butter flakes (left) and chocolate flakes (right). Each mouth is so so smooth, and the taste never leaves your mouth! Prices are for individual cakes.
+prodPrice : 30.0
+prodPath : seller1product8img1.jpg,
+listdate : datetime.date(2020, 1, 7)
+newprod
+sell_id : 3
+prodName : Harry Potter & the Golden Snitch
+prodDesc : A fantasy cake, complete with harry potter and his golden snitch. Cake is lined with a colorful, creamy texture, with a lovely, bouncy filling bound to make you say god bless voldemort!
+prodPrice : 79.9
+prodPath : seller3product1img1.jpg,
+listdate : datetime.date(2020, 1, 7)
+newprod

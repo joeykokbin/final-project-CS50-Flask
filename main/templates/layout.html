@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="HandheldFriendly" content="true">
+<!-- https://catswhocode.com/how-to-make-a-responsive-website/  -->
+        <!-- Using the latest Bootstrap 4 -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- documentation at http://getbootstrap.com/docs/4.1/, alternative themes at https://bootswatch.com/ -->
+        <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"> -->
+
+        <!-- https://favicon.io/emoji-favicons/money-mouth-face/ -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+        <!-- <link rel="manifest" href="/site.webmanifest"> -->
+
+        <link href="/static/styles.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> -->
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+        <title>Piece of cake sg: {% block title %}{% endblock %}</title>
+
+    </head>
+
+    <body class = "full-height">
+        <nav class="navbar navbar-expand-md navbar-light" style = "background-color: #DD96DB; font-family: sans-serif, arial, serif;">
+            <a class = "navbar-brand" href = "/">
+                <div class = "logo-image">
+                    <img src = "/static/favicon.ico" class = "img-fluid" id = "favicon">
+                    <span class = "red">Piece</span><span class = "blue">of</span><span class = "yellow">cake.sg</span>
+                </div>
+            </a>
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+              {% if current_user.is_authenticated %}
+                {% if session["usertype"] == "buyer" %}
+                  <ul class="navbar-nav mr-auto mt-2 navbarfont">
+                      <li class="nav-item"><a class="nav-link" href="/browse">Browse</a></li>
+                      <li class="nav-item"><a class="nav-link" href="/history">History</a></li>
+                  </ul>
+                  <ul class="navbar-nav ml-auto mt-2">
+                      <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                  </ul>
+                {% else %}
+                  <ul class="navbar-nav mr-auto mt-2 navbarfont">
+                      <li class="nav-item"><a class="nav-link" href="/browse">Browse</a></li>
+                      <li class="nav-item"><a class="nav-link" href="/post">Post</a></li>
+                      <li class="nav-item"><a class="nav-link" href="/history">History</a></li>
+                  </ul>
+                  <ul class="navbar-nav ml-auto mt-2 navbarfont">
+                      <li class="nav-item"><a class="nav-link" href="/cart">Shopping Cart</a></li>
+                      <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                  </ul>
+                {% endif %}
+              {% else %}
+              <ul class="navbar-nav mr-auto mt-2 navbarfont">
+                  <li class="nav-item"><a class="nav-link" href="/browse">Browse</a></li>
+              </ul>
+              <ul class="navbar-nav ml-auto mt-2 navbarfont">
+                  <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+              </ul>
+              {% endif %}
+            </div>
+        </nav>
+
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-primary border text-center alert-dismissable fade show" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </header>
+        {% endif %}
+        <!-- <div class = "register-bg-image"> -->
+          <!-- if from index.html -->
+          <main class="container-fluid fill-height mediatype">
+                {% block main %}{% endblock %}
+              <!-- Modal -->
+              <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h3 class="modal-title" id="exampleModalLongTitle">About this website</h3>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      {% for mod in modal %}
+                      <p> {{mod}} </p>
+                      {% endfor %}
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div style = "background-color: #DD96DB;">
+                &emsp;
+                <footer class = "row-inline" style = "font-family: sans-serif, arial, serif; margin-left: 80px; font-size: large;">
+                  <a href = "#" data-toggle = "modal" data-target = "#modalCenter"> About </a>
+                  <p> Disclaimer: All information posted on this website is fictictious unless otherwise stated.
+                </footer>
+                &emsp;
+              </div>
+          </main>
+      		<script src="/static/javascript.js"></script>
+    </body>
+
+</html>

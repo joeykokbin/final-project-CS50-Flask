@@ -1,0 +1,20 @@
+id : 1
+username : administrator
+password : password1
+cash : 1000
+usertype : seller
+cart_details : ""
+newuser
+id : 2
+username : admin1
+password : password1
+cash : 1000
+usertype : seller
+cart_details : ""
+newuser
+id : 2
+username : user
+password : password1
+cash : 1000
+usertype : seller
+cart_details : ""

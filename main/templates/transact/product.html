@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ finalproduct.prodName }}
+{% endblock %}
+
+{% block main %}
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" id = "productmodal" data-target="#addtocartmodal">
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addtocartmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" id = "addtocartmodalcontent">
+          <div class="modal-header" style = "text-align: center; background: #DD96DB;">
+            <h5 class="modal-title" id="exampleModalLongTitle" >{{ finalproduct.prodName }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h3 style = "text-align: center;"> Thank you for choosing this product! Would you like to make payment? </h3>
+          </div>
+          <div id = "productmodalfooter" class="inline modal-footer">
+            <button type="button" class="modalbuttonblock" data-dismiss="modal">Shop first</button>
+            <button type="button" class="modalbuttonblock" id = "buttontocart" onclick="window.location='/cart';">Checkout now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id = "top_product_liner">
+
+    </div>
+    <div id = "mainproduct" class = "container-fluid">
+      <div id = "productdiv">
+        <div id = "product_gallery">
+          <div id = "main_img">
+            <img src="{{ '/static/images/uploads/' + finalproduct.prodPath.split(',')[0] }}" id = "prod_img_main" alt="" class="img-responsive">
+          </div>
+          <div id = "side_pic">
+          {% if finalproduct.prodPath.split(',')[1] %}
+            <img src = "{{ '/static/images/uploads/' + finalproduct.prodPath.split(',')[1] }}" id = "prod_img1" class = "img-responsive">
+          {% endif %}
+          {% if finalproduct.prodPath.split(',')[2] %}
+            <img src = "{{ '/static/images/uploads/' + finalproduct.prodPath.split(',')[2] }}" id = "prod_img2" class = "img-responsive">
+          {% endif %}
+          </div>
+        </div>
+        <div id = "product_details">
+          <div id = "product_title">
+            <h1 id = "prodname">{{ finalproduct.prodName }}</h1>
+          </div>
+          <div id = "product_price">
+            <h1>${{ finalproduct.prodPrice }}0</h1>
+          </div>
+          <div id = "product_desc">
+            <h4 style = "color: grey; margin-bottom: 20px; font-weight: bold;"> Description </h4>
+            <p style = "font-size: 1.4em;">{{ finalproduct.prodDesc }}</p>
+          </div>
+          <div id = "product_dimensions">
+            <h4 style = "color: grey; margin-bottom: 20px; font-weight: bold;"> Dimensions </h4>
+            <p> Length * Width * Height</p>
+          </div>
+          <form id = "orderform" method = "post" action = "/add" name = "product_order_form">
+            <!-- https://www.roytuts.com/simple-shopping-cart-using-python-flask-mysql/ -->
+            <div id = "order_selection">
+                <h2 id = "quantity_slider">Quantity</h2>
+                <div id = "orderbuttons">
+                  <span class="minus"><h2>&minus;</h2></span>
+                  <span><input type="text" name="order_quantity" id="order_quantity" value="1"></span>
+                	<span class="plus"><h2>&plus;</h2></span>
+                  &ensp;&ensp;
+                </div>
+            </div>
+            <div class="form-check" id = "deliverycollect">
+              <input class="form-check-input" type="radio" name = "deliver_collect" value="deliver" id="deliveryselect" required>
+              <label class="form-check-label" for="deliveryselect">
+                <strong> Delivery ($5 Delivery fee will be charged) </strong>
+              </label>
+            </div>
+            <div class="form-check" id = "selfcollect">
+              <input class="form-check-input" type="radio" name = "deliver_collect" value="collection" id="collectionselect">
+              <label class="form-check-label" for="collectionselect">
+                <strong>Self Collection</strong>
+              </label>
+            </div>
+            <div id = "finalprices">
+              <div id = "total_price">
+                 <p> Unit price:</p>
+                 <span id = "pricevar">${{finalproduct.prodPrice }}0</span>
+               </div>
+              <div id = "unit_qty">
+                <p> Quantity: </p>
+                <span id = "quantityvar">1</span>
+              </div>
+              <div id = "subtotal">
+                <p> Subtotal:</p>
+                <span id = "subcost">$0.00</span>
+              </div>
+              <div id = "deliverycost">
+                <p> Delivery:</p>
+                <span id = "delicost">$0.00</span>
+              </div>
+              <div id = "totalcost">
+                <p> Total:</p>
+                <span id = "totcost">$0.00</span>
+              </div>
+            </div>
+              <input type="hidden" name="hidden_prodid" id = "{% if current_user.is_authenticated %}hidden_prodid{% else %}not_hidden_prodid{% endif %}" value="{{finalproduct.prodid}}">
+              <button class="btn-block btn-primary mb-2" type="submit" style = "margin-top: 10px" id = "order_submit">Add to Cart</button>
+          </form>
+        </div>
+      </div>
+    </div>
+{% endblock %}

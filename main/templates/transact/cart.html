@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ current_user.username }}'s cart
+{% endblock %}
+
+{% block main %}
+
+	<div id="shopping-cart">
+		<div class="txt-heading" >Your shopping cart, {{ current_user.username }}.</div>
+		{% if totalproducts|length >= 1 %}
+			<table class="tbl-cart" cellpadding="10" cellspacing="1" id= "cart-table">
+			<tbody>
+				<tr id = "cartheaderrow">
+					<th style="text-align:left; border-bottom: none;">Product Name</th>
+					<th width="15%">Delivery Method</th>
+					<th width="10%">Quantity</th>
+					<th width="10%">Unit Price</th>
+					<th width="10%">Price</th>
+          <th width="15%">Added to cart on:</th>
+					<th width="10%">Remove</th>
+				</tr>
+        {% for product in totalproducts %}
+        <tr>
+          <td class = "cartfirstcol">
+            <div class = "cartfirstimg">
+              <img src ="{{ '/static/images//uploads/' + product[0].prodPath.split(',')[0] }}" class="cart-item-image"/>
+            </div>
+            <div class = "cartfirsttext">
+              <h4 style = "font-weight: bold;"> {{ product[0].prodName }} </h4>
+            </div>
+          </td>
+          <td class = "cartothercols">{{ product[1][0]|upper }}{{ product[1][1:] }}</td>
+          <td class = "cartothercols">{{ product[2] }}</td>
+          <td class = "cartothercols">{{ product[0].prodPrice }}</td>
+          <td class = "cartothercols" name = "totalpriacecol"></td>
+          <td class = "cartothercols"> {{ product[3] }}</td>
+          <td class = "cartothercols">
+            <form id = "{{ 'removeproductcart' + loop.index|string }}" action = "/removeproduct" method = "post">
+              <input type="hidden" name="remove_prodid" value="{{product[0].prodid|string + product[1] + product[2] +  product[3] }}">
+            </form>
+            <img src="/static/icon-delete.png" class = "rmepdtimg" id = "{{ 'cartremove' + loop.index|string }}"alt="Remove Item" onclick = 'removeproductcart(this)' style = "max-width: 40px; max-height: 40px;"/>
+          </td>
+        </tr>
+        {% endfor %}
+        <tr>
+					<td colspan="2" align="right" style = "font-size: 1.5em;">Total: </td>
+					<td id = "cart_totalqty" ></td>
+					<td>Total Price:</td>
+					<td id = "cart_totalprice" colspan="1"><strong></strong></td>
+					<td></td>
+          <td><a id="btnEmpty" href="{{ url_for('transact_bp.empty_cart') }}">Empty Cart</a></td>
+				</tr>
+			</tbody>
+			</table>
+      <div id = "cartoptions">
+        <input type = "button" class = "cartbutton" onClick = "locaton.href = 'index.html'" style = "height: 100px" name = "backtoshop" id = "backtoshop" value= "Back to Shopping">
+        &emsp;
+        <input type = "button" class = "cartbutton" onclick = "locaton.href = 'index.html'" style = "height: 100px" name = "gotopay" id = "gotopay" value= "Payment">
+      </div>
+		{% else: %}
+			<div class="no-records">
+        <p>Oh no! It looks like your cart is empty! </p>
+        <img src ="/static/sadcupcake.png" class="no-cart-image"/>
+        <p><a href = "/browse" id = "no-cart-button">Back to shopping </a></p>
+      </div>
+		{% endif %}
+
+	</div>
+
+
+
+
+{% endblock %}

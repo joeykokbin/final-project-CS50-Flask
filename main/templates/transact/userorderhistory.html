@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+  <div id = "history">
+    <div class = "historytop">
+      <div class="txt-heading" >Your order history, {{ current_user.username }}.</div>
+    </div>
+    <table class="tbl-history" cellpadding="10" cellspacing="1" id = "orderhistory">
+      <tbody>
+        <tr>
+          <th width = "20%" style="text-align:left; border-bottom: none;">Product Name</th>
+					<th width="8%">Delivery Method</th>
+					<th width="5%">Quantity</th>
+					<th width="8%">Unit Price</th>
+					<th width="10%">Total Price Paid</th>
+          <th width="10%">Order Date</th>
+        </tr>
+      {% for order in history %}
+        <tr>
+          <td class = "historyfirstcol">
+            <div class = "historyfirstimg">
+              <img src ="{{ '/static/images//uploads/' + order[0] }}" class="history-item-image"/>
+            </div>
+            <div class = "historyfirsttext">
+              <h4 style = "font-weight: bold;"> {{ order[1] }} </h4>
+            </div>
+          </td>
+          <td class = "histothercols">{{ order[2] }}</td>
+          <td class = "histothercols">{{ order[3]|int }}</td>
+          <td class = "histunitprice">{{order[4] }}</td>
+          <td class = "histtotalprice">{{order[5] }}</td>
+          <td class = "histothercols"> {{ order[6] }}</td>
+        </tr>
+      {% endfor %}
+        <tr>
+          <td colspan="2" align="right" style = "font-size: 1.5em;">Total: </td>
+          <td id = "hist_totalqty" ></td>
+          <td>Total Amount:</td>
+          <td id = "hist_totalprice" colspan="1"><strong></strong></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

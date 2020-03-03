@@ -1,0 +1,8 @@
+
+My name is Joey. I developed this website as part of a project requirement for Harvard University's CS50 that is hosted on www.edx.org. Hopefully, this project serves as a testament to my skills and what I am able to learn (& apply) through the project.
+/n
+The concept behind this website is that of an ecommerce platform for bakeries around my country (i.e. Singapore) to sell cakes, just like that would any other product on Amazon. Granted, this project is nowhere near business viability and many workarounds had to be taken due to lack of coding skills in the specific domain.
+/n
+This website is based on the Flask template for website building, equipped with log-in and standard database functionalities. For more queries or information regarding the technicality of the website and anything else, feel free to shoot me an email @ joey.avg.anon@gmail.com
+/n
+Hopefully, this will grow into a potential business platform in the near future.

@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Post your Cake!
+{% endblock %}
+
+{% block main %}
+    <div class="register-bg-image">
+      &emsp;
+      <div class = "register-bg-text" style = "max-width: 500px;">
+        <form action="/post" method="post" id = "postform" class = "post-form" enctype = "multipart/form-data">
+            <div class="post form-row" style = "max-width: 500px">
+                <input autocomplete="off" autofocus class="form-control" id = "posttitle" name="posttitle" placeholder="Cake Title" type="text" required>
+                &emsp;
+            </div>
+            <div class="post form-row" style = "max-width: 500px; min-height: 150px;">
+                <textarea maxlength = "300" autocomplete="off" autofocus class="form-control" id = "postdescription" name="postdescription" placeholder="Sell your cake!" type="text"></textarea>
+                <div id = "the-count">
+                  <span id = "current">0</span>
+                  <span id = "maximum">/ 300 characters</span>
+                  &emsp;&emsp;
+                </div>
+            </div>
+            <div class="post form-row" style = "max-width: 200px" >
+                <label> Sale Price (SGD) </label>
+                <input required autocomplete="off" autofocus class="form-control" id = "postprice" name="postprice" placeholder="Dollars.Cents only. " type="text">
+                &emsp;
+            </div>
+            <div class="post form-row" style = "max-width: 500px">
+                <input required autocomplete="off" autofocus class="form-control" id = "file1" name="file" type="file">
+                <label> Header photo*. Will scale to fit product page. (Required) </label>
+                &emsp;
+            </div>
+            <div class="post form-row" style = "max-width: 500px">
+                <input autocomplete="off" autofocus class="form-control" id = "file2" name="file" type="file">
+                <label> Photo 2. Equal to header photo in resolution. (Optional)</label>
+                &emsp;
+            </div>
+            <div class="post form-row" style = "max-width: 500px">
+                <input autocomplete="off" autofocus class="form-control" id = "pic3" name="file" type="file">
+                <label> Photo 3.  Equal to header photo in resolution. (Optional) </label>
+                &emsp;
+            </div>
+            &emsp;
+            <div class = "col text-center" style = "max-width: 500px; margin: 0 auto;">
+              <button class="btn btn-primary mb-2" type="submit" style = "margin-top: 10px" id = "postsubmit">Submit</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  <script src = "../static/javascript.js"></script>
+  <script type = "text/javascript">
+
+    $('textarea').keyup(function() {
+
+      var characterCount = $(this).val().length,
+          current = $('#current'),
+          maximum = $('#maximum'),
+          theCount = $('#the-count');
+
+      current.text(characterCount);
+    });
+
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('post-form');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+{% endblock %}

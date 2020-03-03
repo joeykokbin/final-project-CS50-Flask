@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+  <div class = "login-bg-image">
+    <form method="post" id = "loginform">
+        &emsp;
+        <div class="form-group" style = "max-width: 400px;">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+            &emsp;
+        </div>
+        <div class="form-group" style = "max-width: 400px;">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+            &emsp;
+        </div>
+        <div class = "col text-center">
+          <button class="btn btn-primary" type="submit" formaction = "/login" style = "margin: 0 auto;">Log In</button>
+        </div>
+    </form>
+  </div>
+
+{% endblock %}

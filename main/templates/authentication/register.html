@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <div class="register-bg-image">
+      <div class = "register-bg-text">
+        <form action="/register" method="post" id = "registerform" class = "register-form" onsubmit = "registersubmit.disabled = true; return true;">
+            <div class="register form-row">
+                <input autocomplete="off" autofocus class="form-control" id = "newid" name="username" placeholder="Username" type="text">
+            </div>
+            <div class="register form-row">
+                <span id = "checkusername" class = "form-text" style = "text-align: left; font-size: 12px; color: grey; ">    </span>
+            </div>
+            &emsp;
+            &emsp;
+            <div class="register form-row">
+                <input class="form-control" name="password" placeholder="Password" type="password" id = "password">
+            </div>
+            <div class = "register form-row" id = "passwordhelpdiv">
+              <!-- Change this to mouseover -->
+                <span id="passwordhelp" class="form-text">Passwords must be:  </span>
+                <span id="passwordhelp1" class="form-text"> - A mixture of alphanumeric characters </span>
+                <span id="passwordhelp2" class="form-text"> - At least 8 characters</span>
+            </div>
+            &emsp;
+            <div class="register form-row">
+                <input class="form-control" name="confirmation" placeholder="Confirm Password" type="password" id = "confirmpassword">
+            </div>
+            &emsp;
+            <div class = "register form-row">
+              <div class = "form-check-inline">
+                <label class = "form-check-label">
+                  <input type = "radio" class = "form-check-input" name = "buysell" value = "buyer" required> Buyer
+                </label>
+              </div>
+              <div class = "form-check-inline">
+                <label class = "form-check-label">
+                  <input type = "radio" class = "form-check-input" name = "buysell" value = "seller"> Seller
+                </label>
+              </div>
+            </div>
+            &emsp;
+            <div class = "col text-center" style = "max-width: 500px; margin: 0 auto;">
+              <button class="btn btn-primary mb-2" type="submit" style = "margin-top: 10px" name = "registersubmit" id = "registersubmit">Register</button>
+            </div>
+        </form>
+      </div>
+    </div>
+    <script src = "../static/javascript.js"></script>
+{% endblock %}
