@@ -23,3 +23,5 @@ import secrets
 SECRET_KEY = secrets.token_hex(16)
 
 UPLOAD_FOLDER = "static/images/uploads"
+
+LOG_TO_STDOUT = 1
