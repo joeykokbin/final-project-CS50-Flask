@@ -5,7 +5,9 @@ from flask_session import Session
 from flask_login import LoginManager
 from flask import Flask, Blueprint, request, session
 from tempfile import mkdtemp
-from main import config
+# from main import config
+import main.config
+# from . import config
 
 from datetime import timedelta
 
