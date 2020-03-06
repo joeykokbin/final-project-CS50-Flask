@@ -33,8 +33,8 @@ def create_app(test_config = None):
         login_manager.init_app(app)
         Session(app)
 
-        from main.auth import auth_bp
-        from main.transact import transact_bp
+        from auth import auth_bp
+        from transact import transact_bp
 
         # Register Blueprints - These help to compartmentalise routes.
         app.register_blueprint(auth_bp)
@@ -53,7 +53,7 @@ def create_app(test_config = None):
         # for code in default_exceptions:
         #     app.errorhandler(code)(errorhandler)
 
-        from main import auth, transact, routes
+        import auth, transact, routes
         # print("auth is in {}".format(main.auth.__file__))
         # print("transact is in {}".format(main.transact.__file__))
         # print("routes is in {}".format(main.routes.__file__))
