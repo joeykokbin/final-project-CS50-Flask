@@ -2,7 +2,7 @@ from flask import render_template, Blueprint, flash, jsonify, redirect, url_for,
 from flask_login import login_required, logout_user, current_user, login_user
 from flask import current_app as app
 from werkzeug.security import generate_password_hash, check_password_hash
-from main.helpers import apology, allowed_file, modal
+from .helpers import apology, allowed_file, modal
 from datetime import timedelta
 
 # from run import auth_bp
