@@ -7,7 +7,7 @@ from flask import Flask, Blueprint, request, session
 from tempfile import mkdtemp
 # from main import config
 # import main.config
-from . import config
+import config
 
 from datetime import timedelta
 
