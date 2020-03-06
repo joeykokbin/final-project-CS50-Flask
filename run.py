@@ -7,7 +7,7 @@ from flask import Flask, Blueprint, request, session
 from tempfile import mkdtemp
 # from main import config
 # import main.config
-import config
+# import config
 
 from datetime import timedelta
 
@@ -24,7 +24,9 @@ def create_app(test_config = None):
     # Declare everything we need in this application:
     with app.app_context():
 
-        from main.database import db, Order, Product, User
+        # from main.database import db, Order, Product, User
+        from database import db, Order, Product, User
+
         # Initialise Plugins
         db.init_app(app)
         db.create_all()
