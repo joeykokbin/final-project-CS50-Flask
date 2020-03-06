@@ -11,8 +11,8 @@ from datetime import timedelta
 auth_bp = Blueprint('auth_bp', __name__)
 
 # from routes import after_request
-from main.run import login_manager
-from main.database import db, User
+from .run import login_manager
+from .database import db, User
 
 @auth_bp.route("/check", methods=["GET"])
 def check():
