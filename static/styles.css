@@ -38,7 +38,7 @@ html{
   width: 100%;
   /* min-height: 100%; */
 }
-body, main {
+body{
     /* max-width: 1500px; */
     /* height: 100%; */
     min-height: 100%;
@@ -46,7 +46,9 @@ body, main {
     overflow-x: hidden;
     /* overflow-y: hidden; */
 }
-
+main{
+  height: auto;
+}
 
 /* For image gallery at index page */
 #stage {
