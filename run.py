@@ -60,6 +60,7 @@ def create_app(test_config = None):
 
 if __name__ == "__main__":
     app = create_app()
+    app.run()
 
     # https://flask.palletsprojects.com/en/1.1.x/server/
     # flask run --no-reload
