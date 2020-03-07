@@ -24,7 +24,7 @@ def create_app(test_config = None):
             from .transact import transact_bp #Website blueprint
             from . import auth, transact, routes #import routes
 
-        except ModuleNotFoundError:
+        except ModuleNotFoundError or ImportError:
             from main.database import db, Order, Product, User #DB and tables
             from main.auth import auth_bp #Authentication blueprint
             from main.transact import transact_bp #Website blueprint
