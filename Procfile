@@ -1,1 +1,2 @@
-web: flask db upgrade; gunicorn run:app --preload
+web: gunicorn run:app
+release: python dabatase.py db upgrade
