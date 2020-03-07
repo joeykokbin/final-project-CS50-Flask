@@ -1,15 +1,10 @@
 import os
-
 from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
 from flask_login import LoginManager
 from flask import Flask, Blueprint, request, session
 from tempfile import mkdtemp
-
-
-
 from datetime import timedelta
-
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 
 login_manager = LoginManager()
@@ -23,11 +18,17 @@ def create_app(test_config = None):
     # Declare everything we need in this application:
     with app.app_context():
 
-        from app.database import db, Order, Product, User #DB and tables
-        from .auth import auth_bp #Authentication blueprint
-        from .transact import transact_bp #Website blueprint
-        from . import auth, transact, routes #import routes
+        try:
+            from .database import db, Order, Product, User #DB and tables
+            from .auth import auth_bp #Authentication blueprint
+            from .transact import transact_bp #Website blueprint
+            from . import auth, transact, routes #import routes
 
+        except ModuleNotFoundError:
+            from main.database import db, Order, Product, User #DB and tables
+            from main.auth import auth_bp #Authentication blueprint
+            from main.transact import transact_bp #Website blueprint
+            from main import auth, transact, routes #import routes
         # Initialise Plugins
         db.init_app(app)
         db.create_all()
