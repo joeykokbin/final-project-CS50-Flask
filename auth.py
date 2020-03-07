@@ -2,7 +2,7 @@ from flask import render_template, Blueprint, flash, jsonify, redirect, url_for,
 from flask_login import login_required, logout_user, current_user, login_user
 from flask import current_app as app
 from werkzeug.security import generate_password_hash, check_password_hash
-from helpers import apology, allowed_file, modal
+from .helpers import apology, allowed_file, modal
 from datetime import timedelta
 
 # from run import auth_bp
@@ -11,8 +11,8 @@ from datetime import timedelta
 auth_bp = Blueprint('auth_bp', __name__)
 
 # from routes import after_request
-from run import login_manager
-from database import db, User
+from .run import login_manager
+from .database import db, User
 
 @auth_bp.route("/check", methods=["GET"])
 def check():

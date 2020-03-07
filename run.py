@@ -5,9 +5,8 @@ from flask_session import Session
 from flask_login import LoginManager
 from flask import Flask, Blueprint, request, session
 from tempfile import mkdtemp
-# from main import config
-# import main.config
-# import config
+
+
 
 from datetime import timedelta
 
@@ -24,17 +23,18 @@ def create_app(test_config = None):
     # Declare everything we need in this application:
     with app.app_context():
 
-        # from main.database import db, Order, Product, User
-        from database import db, Order, Product, User
+        from .database import db, Order, Product, User #DB and tables
+        from .auth import auth_bp #Authentication blueprint
+        from .transact import transact_bp #Website blueprint
+        from . import auth, transact, routes #import routes
 
         # Initialise Plugins
         db.init_app(app)
         db.create_all()
         login_manager.init_app(app)
         Session(app)
+        # migrate = Migrate(app, db) #To add migration support
 
-        from auth import auth_bp
-        from transact import transact_bp
 
         # Register Blueprints - These help to compartmentalise routes.
         app.register_blueprint(auth_bp)
@@ -53,7 +53,6 @@ def create_app(test_config = None):
         # for code in default_exceptions:
         #     app.errorhandler(code)(errorhandler)
 
-        import auth, transact, routes
         # print("auth is in {}".format(main.auth.__file__))
         # print("transact is in {}".format(main.transact.__file__))
         # print("routes is in {}".format(main.routes.__file__))
@@ -61,7 +60,6 @@ def create_app(test_config = None):
 
 if __name__ == "__main__":
     app = create_app()
-    app.run()
 
     # https://flask.palletsprojects.com/en/1.1.x/server/
     # flask run --no-reload
