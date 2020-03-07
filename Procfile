@@ -1,2 +1,2 @@
 web: gunicorn run:app
-release: python dabatase.py db upgrade
+release: python database.py db upgrade
