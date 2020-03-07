@@ -18,25 +18,11 @@ def create_app(test_config = None):
     # Declare everything we need in this application:
     with app.app_context():
 
-        try:
-            from database import db, Order, Product, User #DB and tables
-            from auth import auth_bp #Authentication blueprint
-            from transact import transact_bp #Website blueprint
-            import auth, transact, routes #import routes
+        from database import db, Order, Product, User #DB and tables
+        from auth import auth_bp #Authentication blueprint
+        from transact import transact_bp #Website blueprint
+        import auth, transact, routes #import routes
 
-        except Exception:
-            print("trying this")
-            try:
-                from main.database import db, Order, Product, User #DB and tables
-                from main.auth import auth_bp #Authentication blueprint
-                from main.transact import transact_bp #Website blueprint
-                from main import auth, transact, routes #import routes
-            except Exception:
-                print("main.database failed. Trying database")
-                from database import db, Order, Product, User #DB and tables
-                from auth import auth_bp #Authentication blueprint
-                from transact import transact_bp #Website blueprint
-                import auth, transact, routes #import routes
         # Initialise Plugins
         db.init_app(app)
         db.create_all()
