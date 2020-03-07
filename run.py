@@ -19,10 +19,10 @@ def create_app(test_config = None):
     with app.app_context():
 
         try:
-            from .database import db, Order, Product, User #DB and tables
-            from .auth import auth_bp #Authentication blueprint
-            from .transact import transact_bp #Website blueprint
-            from . import auth, transact, routes #import routes
+            from database import db, Order, Product, User #DB and tables
+            from auth import auth_bp #Authentication blueprint
+            from transact import transact_bp #Website blueprint
+            import auth, transact, routes #import routes
 
         except Exception:
             print("trying this")
