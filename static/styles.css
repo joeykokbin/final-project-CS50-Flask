@@ -47,7 +47,10 @@ body{
     /* overflow-y: hidden; */
 }
 main{
-  height: auto;
+  height: 150%;
+}
+.login-bg-image{
+
 }
 
 /* For image gallery at index page */
@@ -650,8 +653,11 @@ td{
   }
 }
 @media (min-width: 1025px){
-  h1, h2, h3, h4, p {
-    font-size: 1em;
+  p,#pricevar, #quantityvar, #subcost, #delicost, #totcost {
+    font-size: 1.3rem;
+  }
+  h1 {
+    font-size: 1.5rem;
   }
 
 }
