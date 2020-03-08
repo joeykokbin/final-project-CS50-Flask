@@ -17,7 +17,7 @@ def index():
     sell_id = 1
     listofproducts = Product.query.filter_by(sell_id = sell_id).all()
     # Filter by item name; currently hardcoded. Should be retrieved from a list elsewhere.
-    title = ["Guardians of the Galaxy", "Taste o' Goodness", "Galaxy Cake", "Yin & Yang"]
+    title = []
     path = []
     name = ["stageimg", "noshow", "noshow", "noshow"]
     img_id =["stageimg", "noshow1", "noshow2", "noshow3"]
@@ -32,14 +32,14 @@ def index():
     # print(request.cookies)
 # ''' sesison is deleted after timedelta, but remember token is still there, which is why is still logged in. '''
 
-    for products in listofproducts:
+    for products in listofproducts[0:4]:
         # print(products.prodName)
         if products.prodName in title:
             target = os.path.join(app.config['UPLOAD_FOLDER'], products.prodPath).replace("\\","/").strip(",")
-            # print(target)
             path.append(target)
             desc.append(products.prodDesc)
             prodids.append(products.prodName.replace(" ", "-"))
+            title.append(products.prodName)
 
     # print(prodids)
     # Landing page. For simplicity, I should just show the default home page.
