@@ -26,11 +26,8 @@ def index():
     desc = []
     prodids = []
 
-    # print("Check main index page buy button links. ")
-    # print(app.config)
-    # print(dir(app.config))
-    # print(request.cookies)
-# ''' sesison is deleted after timedelta, but remember token is still there, which is why is still logged in. '''
+    print([products.prodName for products in listofproducts])
+
 
     for products in listofproducts[0:4]:
         # print(products.prodName)
