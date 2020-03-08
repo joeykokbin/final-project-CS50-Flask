@@ -19,9 +19,7 @@ SESSION_REFRESH_EACH_REQUEST = True
 SESSION_TYPE='filesystem'
 REMEMBER_COOKIE_DURAITON = timedelta(minutes = 30)
 
-import secrets
-
-# SECRET_KEY = secrets.token_hex(16)
+SECRET_KEY = "kokbin82681793"
 
 UPLOAD_FOLDER = "static/images/uploads"
 
