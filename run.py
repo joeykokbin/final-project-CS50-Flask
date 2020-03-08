@@ -31,7 +31,7 @@ def create_app(test_config = None):
 
         # Initialise Plugins
         db.init_app(app)
-        db.create_all()
+        # db.create_all()
         login_manager.init_app(app)
         Session(app)
         # migrate = Migrate(app, db) #To add migration support
