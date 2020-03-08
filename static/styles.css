@@ -46,11 +46,9 @@ body{
     overflow-x: hidden;
     /* overflow-y: hidden; */
 }
-main{
-  height: 150%;
-}
-.login-bg-image{
 
+.login-bg-image{
+  min-height: 100%;
 }
 
 /* For image gallery at index page */
@@ -111,7 +109,7 @@ div[name = "textshow"]{
 .full-height {
   display: flex;
   flex-direction: column;
-  /* height: 100%; */
+  height: 100%;
  }
 .fill-height {
   flex-grow: 1;
@@ -655,9 +653,6 @@ td{
 @media (min-width: 1025px){
   p,#pricevar, #quantityvar, #subcost, #delicost, #totcost {
     font-size: 1.3rem;
-  }
-  h1 {
-    font-size: 1.5rem;
   }
 
 }

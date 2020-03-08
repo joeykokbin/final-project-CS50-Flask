@@ -2,8 +2,10 @@ from flask import render_template, url_for, session, request
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from flask import current_app as app
 from flask import session, Markup, flash
-from database import db, User, Product, Order
-from helpers import apology, allowed_file, modal
+# from database import db, User, Product, Order
+# from helpers import apology, allowed_file, modal
+from .database import db, User, Product, Order
+from .helpers import apology, allowed_file, modal
 import os
 
 # Beginning of application

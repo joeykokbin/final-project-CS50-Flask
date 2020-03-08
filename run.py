@@ -6,6 +6,8 @@ from flask import Flask, Blueprint, request, session
 from tempfile import mkdtemp
 from datetime import timedelta
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
+from flask_script import Manager
+from flask_migrate import Migrate, MigrateCommand
 
 login_manager = LoginManager()
 
@@ -17,11 +19,15 @@ def create_app(test_config = None):
 
     # Declare everything we need in this application:
     with app.app_context():
-
-        from database import db, Order, Product, User #DB and tables
-        from auth import auth_bp #Authentication blueprint
-        from transact import transact_bp #Website blueprint
-        import auth, transact, routes #import routes
+        #
+        # from database import db, Order, Product, User #DB and tables
+        # from auth import auth_bp #Authentication blueprint
+        # from transact import transact_bp #Website blueprint
+        # import auth, transact, routes #import routes
+        from .database import db, Order, Product, User #DB and tables
+        from .auth import auth_bp #Authentication blueprint
+        from .transact import transact_bp #Website blueprint
+        from . import auth, transact, routes #import routes
 
         # Initialise Plugins
         db.init_app(app)
@@ -29,6 +35,9 @@ def create_app(test_config = None):
         login_manager.init_app(app)
         Session(app)
         # migrate = Migrate(app, db) #To add migration support
+        #
+        # manager = Manager(app)
+        # manager.add_command('db', MigrateCommand)
 
 
         # Register Blueprints - These help to compartmentalise routes.

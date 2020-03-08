@@ -5,7 +5,8 @@ EXPLAIN_TEMPLATE_LOADING = True
 
 import os
 db_path = os.path.join(os.path.dirname(__file__), 'bakery.db')
-SQLALCHEMY_DATABASE_URI = "sqlite:///{}".format(db_path)
+
+SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 SQLALCHEMY_TRACK_MODIFICAIONS = False
 
 from tempfile import mkdtemp
@@ -20,7 +21,7 @@ REMEMBER_COOKIE_DURAITON = timedelta(minutes = 30)
 
 import secrets
 
-SECRET_KEY = secrets.token_hex(16)
+# SECRET_KEY = secrets.token_hex(16)
 
 UPLOAD_FOLDER = "static/images/uploads"
 
