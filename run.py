@@ -6,8 +6,8 @@ from flask import Flask, Blueprint, request, session
 from tempfile import mkdtemp
 from datetime import timedelta
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
-from flask_script import Manager
-from flask_migrate import Migrate, MigrateCommand
+# from flask_script import Manager
+# from flask_migrate import Migrate, MigrateCommand
 
 login_manager = LoginManager()
 
