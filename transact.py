@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, flash, jsonify, redirect, url_for, request, session
+from flask import render_template, Blueprint, flash, jsonify, redirect, url_for, request, session, Markup
 from flask_login import login_required, current_user
 from flask import current_app as app
 from database import db, User, Product, Order
