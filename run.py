@@ -19,11 +19,7 @@ def create_app(test_config = None):
 
     # Declare everything we need in this application:
     with app.app_context():
-        #
-        # from database import db, Order, Product, User #DB and tables
-        # from auth import auth_bp #Authentication blueprint
-        # from transact import transact_bp #Website blueprint
-        # import auth, transact, routes #import routes
+
         from database import db, Order, Product, User #DB and tables
         from auth import auth_bp #Authentication blueprint
         from transact import transact_bp #Website blueprint
@@ -31,7 +27,7 @@ def create_app(test_config = None):
 
         # Initialise Plugins
         db.init_app(app)
-        # db.create_all()
+        db.create_all()
         login_manager.init_app(app)
         Session(app)
         # migrate = Migrate(app, db) #To add migration support
