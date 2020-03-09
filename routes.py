@@ -35,12 +35,11 @@ def index():
 
     for products in listofproducts[0:4]:
         # print(products.prodName)
-        if products.prodName in title:
-            target = os.path.join(app.config['UPLOAD_FOLDER'], products.prodPath).replace("\\","/").strip(",")
-            path.append(target)
-            desc.append(products.prodDesc)
-            prodids.append(products.prodName.replace(" ", "-"))
-            title.append(products.prodName)
+        target = os.path.join(app.config['UPLOAD_FOLDER'], products.prodPath).replace("\\","/").strip(",")
+        path.append(target)
+        desc.append(products.prodDesc)
+        prodids.append(products.prodName.replace(" ", "-"))
+        title.append(products.prodName)
 
     print(path)
     # print(prodids)
