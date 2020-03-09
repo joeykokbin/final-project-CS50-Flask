@@ -19,8 +19,10 @@ def browse():
     modaltext = modal()
     listofproducts = Product.query.all()
 
-    user_visitor = User.query.filter_by(id = current_user.id).first()
-    if user_visitor is None:
+    user_visitor = ""
+    if current_user.is_authenticated == True:
+        user_visitor = User.query.filter_by(id = current_user.id).first()
+    else:
         user_visitor = "none"
 
     for i in range(len(listofproducts)):
@@ -38,8 +40,10 @@ def productlist(product):
     ''' try it with a form'''
     modaltext = modal()
 
-    user_visitor = User.query.filter_by(id = current_user.id).first()
-    if user_visitor is None:
+    user_visitor = ""
+    if current_user.is_authenticated == True:
+        user_visitor = User.query.filter_by(id = current_user.id).first()
+    else:
         user_visitor = "none"
 
     #https://stackoverflow.com/questions/8398726/using-the-post-method-with-html-anchor-tags

@@ -12,9 +12,12 @@ import os
 def index():
 
     modaltext = modal()
+    user_visitor = ""
 
-    user_visitor = User.query.filter_by(id = current_user.id).first()
-    if user_visitor is None:
+    if current_user.is_authenticated == True:
+        user_visitor = User.query.filter_by(id = current_user.id).first()
+
+    else:
         user_visitor = "none"
 
     sell_id = 1
@@ -29,8 +32,6 @@ def index():
     desc = []
     prodids = []
     target = ""
-
-
 
     for products in listofproducts[0:4]:
         # print(products.prodName)
