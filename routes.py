@@ -29,6 +29,7 @@ def index():
     tagname = ["textshow", "textnoshow", "textnoshow","textnoshow"]
     desc = []
     prodids = []
+    target = ""
 
 
 
@@ -41,7 +42,7 @@ def index():
             prodids.append(products.prodName.replace(" ", "-"))
             title.append(products.prodName)
 
-    print(target)
+    print(path)
     # print(prodids)
     # Landing page. For simplicity, I should just show the default home page.
     # print("user = {}, usertype = {}".format(session["user"], session["usertype"]))
