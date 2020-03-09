@@ -13,6 +13,10 @@ def index():
     modaltext = modal()
 
     listofproducts = Product.query.all()
+    for prod in listofproducts:
+        print(prod.prodName)
+        print(prod.prodid)
+        print(prod.prodPath)
 
     sell_id = 1
     listofproducts = Product.query.filter_by(sell_id = sell_id).all()
@@ -26,7 +30,6 @@ def index():
     desc = []
     prodids = []
 
-    print([products.prodName for products in listofproducts])
 
 
     for products in listofproducts[0:4]:
