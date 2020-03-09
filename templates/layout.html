@@ -48,7 +48,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbar">
-              {% if user_visitor != "none" %}
+              {% if user_visitor is defined %}
                 {% if user_visitor.usertype == "buyer" %}
                   <ul class="navbar-nav mr-auto mt-2 navbarfont">
                       <li class="nav-item"><a class="nav-link" href="/browse">Browse</a></li>
