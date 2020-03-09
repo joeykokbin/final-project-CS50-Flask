@@ -67,6 +67,7 @@ def login():
                 db.session.commit()
                 session["user"] = user.username
                 session["usertype"] = user.usertype
+                print(session["usertype"])
                 login_user(user, remember = True, duration = timedelta(minutes = 15))
                 return redirect(url_for("index"))
             else:
