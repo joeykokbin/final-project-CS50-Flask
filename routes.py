@@ -35,7 +35,8 @@ def index():
 
     for products in listofproducts[0:4]:
         # print(products.prodName)
-        target = os.path.join(app.config['UPLOAD_FOLDER'], products.prodPath).replace("\\","/").strip(",")
+        prodpath = products.prodPath.split(",")[0]
+        target = os.path.join(app.config['UPLOAD_FOLDER'], prodpath)
         path.append(target)
         desc.append(products.prodDesc)
         prodids.append(products.prodName.replace(" ", "-"))
