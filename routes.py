@@ -43,16 +43,3 @@ def index():
     # print("user = {}, usertype = {}".format(session["user"], session["usertype"]))
 
     return render_template("index.html", prodid = prodids, modal = modaltext, title = title, path = path, name = name, img_id = img_id, tagid = tagid, tagname = tagname, desc = desc), 200
-
-
-@app.route("/visits-counter/")
-def visits():
-    if 'visits' in session:
-        session['visits'] = session.get('visits') + 1  # reading and updating session data
-    else:
-        session['visits'] = 1 # setting session data
-
-    print(app.config['PERMANENT_SESSION_LIFETIME'])
-    print(app.config['SESSION_PERMANENT'])
-
-    return "Total visits: {}".format(session.get('visits'))
