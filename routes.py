@@ -13,10 +13,10 @@ def index():
     modaltext = modal()
 
     listofproducts = Product.query.all()
-    for prod in listofproducts:
-        print(prod.prodName)
-        print(prod.prodid)
-        print(prod.prodPath)
+    # for prod in listofproducts:
+    #     print(prod.prodName)
+    #     print(prod.prodid)
+    #     print(prod.prodPath)
 
     sell_id = 1
     listofproducts = Product.query.filter_by(sell_id = sell_id).all()
@@ -41,6 +41,7 @@ def index():
             prodids.append(products.prodName.replace(" ", "-"))
             title.append(products.prodName)
 
+    print(target)
     # print(prodids)
     # Landing page. For simplicity, I should just show the default home page.
     # print("user = {}, usertype = {}".format(session["user"], session["usertype"]))
