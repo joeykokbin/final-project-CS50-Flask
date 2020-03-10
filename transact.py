@@ -19,18 +19,12 @@ def browse():
     modaltext = modal()
     listofproducts = Product.query.all()
 
-    user_visitor = ""
-    if current_user.is_authenticated == True:
-        user_visitor = User.query.filter_by(id = current_user.id).first()
-    else:
-        user_visitor = "none"
-
     for i in range(len(listofproducts)):
         listofproducts[i].prodPath = listofproducts[i].prodPath.split(",")
         listofproducts[i].prodPrice = str(format(listofproducts[i].prodPrice, '.2f'))
 
     # db.session.rollback()
-    return render_template("transact/browse.html", modal = modaltext, listofproducts = listofproducts, mycount = range(len(listofproducts)), user_visitor = user_visitor)
+    return render_template("transact/browse.html", modal = modaltext, listofproducts = listofproducts, mycount = range(len(listofproducts)))
 
 @transact_bp.route("/product/<product>", methods=["GET", "POST"])
 def productlist(product):
@@ -39,12 +33,6 @@ def productlist(product):
     ''' pass the results of this function to another one'''
     ''' try it with a form'''
     modaltext = modal()
-
-    user_visitor = ""
-    if current_user.is_authenticated == True:
-        user_visitor = User.query.filter_by(id = current_user.id).first()
-    else:
-        user_visitor = "none"
 
     #https://stackoverflow.com/questions/8398726/using-the-post-method-with-html-anchor-tags
     if request.method == "POST":
@@ -59,7 +47,7 @@ def productlist(product):
         # print(finalproduct.prodid)
         # print(finalproduct.prodPath)
 
-        return render_template("transact/product.html", modal = modaltext, finalproduct = finalproduct, user_visitor = user_visitor), 200
+        return render_template("transact/product.html", modal = modaltext, finalproduct = finalproduct), 200
     else:
         # From main page gallery
         prodname = request.args.get("prodid")
@@ -79,7 +67,7 @@ def productlist(product):
         # print(finalproduct)
         # print(request.method)
         # print(request.headers.get("Referer"))
-        return render_template("transact/product.html", modal = modaltext, finalproduct = finalproduct, user_visitor = user_visitor), 200
+        return render_template("transact/product.html", modal = modaltext, finalproduct = finalproduct), 200
 
 @transact_bp.route("/post", methods = ["GET", "POST"])
 @login_required
@@ -149,7 +137,7 @@ def cart():
     modaltext = modal()
     user_to_add = User.query.filter_by(id = current_user.id).first()
     items = user_to_add.cart_details
-    user_visitor = user_to_add
+    # user_visitor = user_to_add
 
     today = date.today()
     totalproducts = []
@@ -180,7 +168,7 @@ def cart():
     db.session.commit()
 
 
-    return render_template("transact/cart.html", totalproducts = totalproducts, modal = modaltext, user_visitor = user_visitor),200
+    return render_template("transact/cart.html", totalproducts = totalproducts, modal = modaltext),200
 
 # you cannot 'retrieve' adding products to cart, therefore only method is "POST"
 @transact_bp.route("/add", methods = ["POST"])

@@ -2,7 +2,6 @@ from flask import render_template, url_for, session, request
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from flask import current_app as app
 from flask import session, Markup, flash
-from flask_login import current_user
 from database import db, User, Product, Order
 from helpers import apology, allowed_file, modal
 import os
@@ -12,13 +11,6 @@ import os
 def index():
 
     modaltext = modal()
-    user_visitor = ""
-
-    if current_user.is_authenticated == True:
-        user_visitor = User.query.filter_by(id = current_user.id).first()
-
-    else:
-        user_visitor = "none"
 
     sell_id = 1
     listofproducts = Product.query.filter_by(sell_id = sell_id).all()
@@ -42,9 +34,9 @@ def index():
         prodids.append(products.prodName.replace(" ", "-"))
         title.append(products.prodName)
 
-    print(path)
+    # print(path)
     # print(prodids)
     # Landing page. For simplicity, I should just show the default home page.
     # print("user = {}, usertype = {}".format(session["user"], session["usertype"]))
 
-    return render_template("index.html", prodid = prodids, modal = modaltext, title = title, path = path, name = name, img_id = img_id, tagid = tagid, tagname = tagname, desc = desc, user_visitor = user_visitor), 200
+    return render_template("index.html", prodid = prodids, modal = modaltext, title = title, path = path, name = name, img_id = img_id, tagid = tagid, tagname = tagname, desc = desc), 200
