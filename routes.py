@@ -6,12 +6,11 @@ from database import db, User, Product, Order
 from helpers import apology, allowed_file, modal
 import os
 
-from database import UserSession
 @app.before_request
 def before_request_func():
     print("removing inactive users from db")
 
-    allsessions = UserSession.query.all()
+    # allsessions = UserSession.query.all()
     print(allsessions)
 
 
