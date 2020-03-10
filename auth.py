@@ -71,7 +71,7 @@ def login():
                 login_user(user, remember = True, duration = timedelta(minutes = 15))
 
                 #new
-                newsess = UserSession(userid = user.id)
+                newsess = UserSession(userid = current_user.id)
                 db.session.add(newsess)
                 db.session.commit()
 
