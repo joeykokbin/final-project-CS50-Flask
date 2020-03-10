@@ -58,10 +58,10 @@ class UserSession(UserMixin, db.Model):
 
     user = db.relationship("User", foreign_keys = [userid])
 
-    def __init__(self, sessid, userid, timestamp):
-        self.sessid = sessid
+    def __init__(self, userid):
+        # self.sessid = sessid
         self.userid = userid
-        self.timestamp = timestamp
+        # self.timestamp = timestamp
 
     def __repr__(self):
         return '<session %r' % self.sessid
