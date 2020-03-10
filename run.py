@@ -21,7 +21,6 @@ def create_app(test_config = None):
     with app.app_context():
 
         from database import db, Order, Product, User #DB and tables
-        from database import UserSession  # new
         from auth import auth_bp #Authentication blueprint
         from transact import transact_bp #Website blueprint
         import auth, transact, routes #import routes
