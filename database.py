@@ -2,7 +2,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-from sqlalchemy import DateTime
+from sqlalchemy.sql import func
 
 
 db = SQLAlchemy(session_options = {"autoflush": False})
@@ -54,7 +54,7 @@ class UserSession(UserMixin, db.Model):
     __tablename__ = 'usersession'
     sessid = db.Column(db.Integer, primary_key = True, autoincrement = True)
     userid = db.Column(db.Integer, db.ForeignKey('user.id'))
-    timestamp = db.Column(db.DateTime, default = datetime.datetime.utcnow)
+    timestamp = db.Column(db.DateTime(timezone = True), default = func.now())
 
     user = db.relationship("User", foreign_keys = [userid])
 
