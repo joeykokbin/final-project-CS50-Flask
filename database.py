@@ -50,31 +50,15 @@ class Product(UserMixin, db.Model):
     def __repr__(self):
         return '<Product %r>' % self.prodid
 
-# class UserSession(UserMixin, db.Model):
-#     __tablename__ = 'usersession'
-#     sessid = db.Column(db.Integer, primary_key = True, autoincrement = True)
-#     userid = db.Column(db.Integer, db.ForeignKey('user.id'))
-#     timestamp = db.Column(db.DateTime(timezone = True), default = func.now())
-#
-#     user = db.relationship("User", foreign_keys = [userid])
-#
-#     def __init__(self, userid):
-#         # self.sessid = sessid
-#         self.userid = userid
-#         # self.timestamp = timestamp
-#
-#     def __repr__(self):
-#         return '<session %r' % self.sessid
-
 # Only have Buyers, and anonymous user.
 class User(UserMixin, db.Model):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key = True, autoincrement = True)
     username = db.Column(db.String(256), unique = True, nullable = False)
     password = db.Column(db.String(256), nullable = True)
-    cash = db.Column(db.Float, default = 1000)
     usertype = db.Column(db.String(256), nullable = False)
     cart_details = db.Column(db.Text(), nullable = True, default = " ")
+    lastlogin = db.Column(db.DateTime(timezone = True), default = func.now())
 
     def __init__(self, username, password, usertype):
         self.username = username
