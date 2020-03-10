@@ -11,7 +11,7 @@ from datetime import timedelta
 auth_bp = Blueprint('auth_bp', __name__)
 
 from run import login_manager
-from database import db, User
+from database import db, User, UserSession
 
 @auth_bp.route("/check", methods=["GET"])
 def check():
@@ -64,11 +64,17 @@ def login():
             if user.check_password(password = password):
                 user.authenticated = True
                 db.session.add(user)
-                db.session.commit()
+
                 session["user"] = user.username
                 session["usertype"] = user.usertype
                 # print(session["usertype"])
                 login_user(user, remember = True, duration = timedelta(minutes = 15))
+
+                #new
+                newsess = UserSession(userid = new_user.id)
+                db.session.add(newsess)
+                db.session.commit()
+
                 return redirect(url_for("index"))
             else:
                 flash("Wrong credentials.")
@@ -119,6 +125,10 @@ def register():
                 session["user"] = new_user.username
                 session["usertype"] = new_user.usertype
                 login_user(new_user, remember = True, duration = timedelta(minutes = 15))
+
+                #new
+                newsess = UserSession(userid = new_user.id)
+                db.session.add(newsess)
 
                 db.session.commit()
                 flash("Welcome, {}".format(username))

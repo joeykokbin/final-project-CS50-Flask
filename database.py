@@ -2,6 +2,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy import DateTime
 
 
 db = SQLAlchemy(session_options = {"autoflush": False})
@@ -48,6 +49,22 @@ class Product(UserMixin, db.Model):
 
     def __repr__(self):
         return '<Product %r>' % self.prodid
+
+class UserSession(UserMixin, db.Model):
+    __tablename__ = 'usersession'
+    sessid = db.Column(db.Integer, primary_key = True, autoincrement = True)
+    userid = db.Column(db.Integer, db.ForeignKey('user.id'))
+    timestamp = db.Column(db.DateTime, default = datetime.datetime.utcnow)
+
+    user = db.relationship("User", foreign_keys = [userid])
+
+    def __init__(self, sessid, userid, timestamp):
+        self.sessid = sessid
+        self.userid = userid
+        self.timestamp = timestamp
+
+    def __repr__(self):
+        return '<session %r' % self.sessid
 
 # Only have Buyers, and anonymous user.
 class User(UserMixin, db.Model):

@@ -2,7 +2,9 @@ from flask import render_template, Blueprint, flash, jsonify, redirect, url_for,
 from flask_login import login_required, current_user
 from flask import current_app as app
 from database import db, User, Product, Order
-# from helpers import apology, allowed_file, modal
+from database import UserSession
+
+
 from helpers import apology, allowed_file, modal
 from werkzeug.utils import secure_filename
 import os
