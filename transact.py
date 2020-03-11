@@ -120,7 +120,6 @@ def post():
 
             prodpath += ','
 
-
         newproduct = Product(sell_id = sell_id, prodName = name, prodDesc = description, prodPrice = price, prodPath = prodpath, listdate = date.today())
         db.session.add(newproduct)
         db.session.commit()
