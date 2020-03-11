@@ -35,8 +35,7 @@ def onetime():
     db.session.add(product10)
     db.session.add(product11)
 
-
-
+    db.session.commit()
     return "done"
 
 # Beginning of application
