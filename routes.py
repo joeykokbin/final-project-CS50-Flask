@@ -11,7 +11,7 @@ import os
 def before_request_func():
     print("removing inactive users from db")
     if type(current_user) != "User":
-        print("user is anonymous")
+        print("user is anonymous, type of object is {}".format(str(type(current_user))))
 
     else:
         allsessions = User.query.filter_by(id = current_user.id).all()
