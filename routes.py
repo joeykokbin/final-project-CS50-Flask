@@ -12,7 +12,7 @@ def before_request_func():
 
     if current_user.is_authenticated:
         print("user is logged in.")
-        allsessions = User.query.filter_by(id = current_user.id).all()
+        allsessions = User.query.filter_by(id = current_user.id).first()
         print(allsessions.username)
         print(allsessions.usertype)
 
