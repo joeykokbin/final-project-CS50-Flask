@@ -650,6 +650,12 @@ td{
   .no-records > p{
     font-size: 1rem;
   }
+  .payment{
+    max-width: 100%;
+    /* margin-top: 30px; */
+    background-color: #f2f2f2;
+    padding: 0px 100px 0px 100px;
+  }
 }
 @media (min-width: 1025px){
   p,#pricevar, #quantityvar, #subcost, #delicost, #totcost {
@@ -738,6 +744,13 @@ td{
   .tbl-history{
     width: 80%;
   }
+
+  .payment{
+    max-width: 100%;
+    /* margin-top: 30px; */
+    background-color: #f2f2f2;
+    padding: 0px 100px 0px 100px;
+  }
 }
 @media (max-width: 320px) {
 
@@ -750,6 +763,13 @@ td{
 
   #navbarsize {
     min-height: 130px;
+  }
+
+  .payment{
+    max-width: 100%;
+    /* margin-top: 30px; */
+    background-color: #f2f2f2;
+    padding: 0px 100px 0px 100px;
   }
 
 }
