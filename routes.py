@@ -4,6 +4,7 @@ from flask import current_app as app
 from flask_login import current_user
 from flask import session, Markup, flash
 from database import db, User, Product, Order
+from datetime import date, datetime
 from helpers import apology, allowed_file, modal
 import os
 
@@ -21,7 +22,7 @@ def onetime():
     product9 = Product(sell_id = 2, prodName = "The Perfect Cheese Cake", prodDesc = "No words can describe how this tastes. But numbers can. 10/10", prodPrice = 50.0, prodPath ="seller1product1img1.jpg", listdate = date.today())
     product10 = Product(sell_id = 2, prodName = "Yin and Yang", prodDesc = "Cheesecake, deliciously covered in butter flakes (left) and chocolate flakes (right). Each mouth is so so smooth, and the taste never leaves your mouth! Prices are for individual cakes.", prodPrice = 39.90, prodPath ="seller1product2img1.jpg", listdate = date.today())
     product11 = Product(sell_id = 2, prodName = "Test Cake", prodDesc = "This is a test cake. Buy at your own peril! (Seriously, buy it.)", prodPrice = 30.0, prodPath ="seller1product3img1.jpg", listdate = date.today())
-    
+
     db.session.add(product1)
     db.session.add(product2)
     db.session.add(product3)
