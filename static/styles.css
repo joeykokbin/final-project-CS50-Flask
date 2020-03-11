@@ -1,5 +1,5 @@
 nav .navbar-brand{ /* size for brand */ padding-top: 0px; padding-bottom: 0px;}
-#navbarsize { min-height: 130px;}
+
 /* colors for brand */
 nav .navbar-brand .blue {
     color: #537fbe;
@@ -665,6 +665,9 @@ td{
     flex-direction: row;
     font-size: 1.3vh;
   }
+  #navbarsize {
+    min-height: 130px;
+  }
 
   /* For gallery text box */
   div[name = "textshow"]{
@@ -746,35 +749,38 @@ td{
   }
 }
 
-/* For order history table */
-.tbl-history{
-  margin: 0 auto;
-  font-weight: bold;
-  text-align: center !important;
-  max-width: 100%;
-  border-bottom: 1px solid black !important;
+  /* For order history table */
+  .tbl-history{
+    margin: 0 auto;
+    font-weight: bold;
+    text-align: center !important;
+    max-width: 100%;
+    border-bottom: 1px solid black !important;
 
-}
-#history{
-  height: 100%;
-}
-.history-item-image{
-  max-width: 180px;
-  max-height: 180px;
-  margin: 0px 30px 0px 0px;
-}
-.historyfirstimg{
-  max-width: 250px;
-  text-align: center;
-}
-.historyfirstcol{
-  display: flex;
-  border-bottom: none !important;
-  border-left: 1px solid black !important;
-  border-right: none !important;
-  align-items: center;
-  justify-content: space-between;
-}
-.historyfirsttext{
-  text-align: center;
-}
+  }
+  #history{
+    height: 100%;
+  }
+  .history-item-image{
+    max-width: 180px;
+    max-height: 180px;
+    margin: 0px 30px 0px 0px;
+  }
+  .historyfirstimg{
+    max-width: 250px;
+    text-align: center;
+  }
+  .historyfirstcol{
+    display: flex;
+    border-bottom: none !important;
+    border-left: 1px solid black !important;
+    border-right: none !important;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .historyfirsttext{
+    text-align: center;
+  }
+  #navbarsize {
+    min-height: 130px;
+  }
