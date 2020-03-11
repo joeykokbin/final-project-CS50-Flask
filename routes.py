@@ -9,13 +9,15 @@ import os
 
 @app.before_request
 def before_request_func():
-    print("removing inactive users from db")
-    if type(current_user) != "User":
-        print("user is anonymous, type of object is {}".format(str(type(current_user))))
+
+    if current_user.is_authenticated:
+        print("user is logged in.")
+        allsessions = User.query.filter_by(id = current_user.id).all()
+        print(allsessions.username)
+        print(allsessions.usertype)
 
     else:
-        allsessions = User.query.filter_by(id = current_user.id).all()
-        print(allsessions)
+        print("user is anonymous")
 
 
 # Beginning of application
