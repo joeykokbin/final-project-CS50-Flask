@@ -1,4 +1,5 @@
 nav .navbar-brand{ /* size for brand */ padding-top: 0px; padding-bottom: 0px;}
+#navbarsize { min-height: 130px;}
 /* colors for brand */
 nav .navbar-brand .blue {
     color: #537fbe;
