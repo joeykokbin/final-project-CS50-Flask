@@ -10,7 +10,7 @@ import os
 @app.before_request
 def before_request_func():
     print("removing inactive users from db")
-    allsessions = User.query.filter_by(id = cuurrent_user.id).all()
+    allsessions = User.query.filter_by(id = current_user.id).all()
     print(allsessions)
 
 
