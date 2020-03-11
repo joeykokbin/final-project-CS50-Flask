@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    {{ current_user.username }}'s cart
+    Your cart
 {% endblock %}
 
 {% block main %}
 
 	<div id="shopping-cart">
-		<div class="txt-heading" >Your shopping cart, {{ current_user.username }}.</div>
+		<div class="txt-heading" >Your shopping cart.</div>
 		{% if totalproducts|length >= 1 %}
 			<table class="tbl-cart" cellpadding="10" cellspacing="1" id= "cart-table">
 			<tbody>

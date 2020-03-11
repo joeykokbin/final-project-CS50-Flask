@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Payment for {{ current_user.username }}
+    Payment for customer
 {% endblock %}
 
 {% block main %}
@@ -10,7 +10,7 @@
       <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="/static/favicon.ico" alt="" width="72" height="72">
         <h2>Payment</h2>
-        <p class="lead"> Hi, {{ current_user.username }}, please fill in your *not real* payment details.
+        <p class="lead"> Hi, beloved user, please fill in your *not real* payment details.
         <button type="button" class="btn btn-lg paymentmodalbutton" data-toggle="modal" data-target="#paymentmodal" >Click me</button>
         </div>
         <!-- Modal -->

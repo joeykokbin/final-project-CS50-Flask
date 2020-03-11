@@ -7,17 +7,17 @@ from database import db, User, Product, Order
 from helpers import apology, allowed_file, modal
 import os
 
-@app.before_request
-def before_request_func():
-
-    if current_user.is_authenticated:
-        print("user is logged in.")
-        allsessions = User.query.filter_by(id = current_user.id).first()
-        print(allsessions.username)
-        print(allsessions.usertype)
-
-    else:
-        print("user is anonymous")
+# @app.before_request
+# def before_request_func():
+# 
+#     if current_user.is_authenticated:
+#         print("user is logged in.")
+#         allsessions = User.query.filter_by(id = current_user.id).first()
+#         print(allsessions.username)
+#         # print(allsessions.usertype)
+#
+#     else:
+#         print("user is anonymous")
 
 
 # Beginning of application
