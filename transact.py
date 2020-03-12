@@ -289,7 +289,7 @@ def payment():
 
         # Get the remove_prodid
         products = request.form.get("remove_prodid")
-
+        print(products)
         buy_id = current_user.id
 
         price = 0
