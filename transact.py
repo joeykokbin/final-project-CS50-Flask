@@ -339,8 +339,8 @@ def history():
             deliverymethod = "Collection"
             qty = orders.unitprice/produc_price
 
-        print(qty)
-
+        print("qty = {}".format(qty))
+        print("prodprice = {}, unitprice = {}".format(produc.prodPrice, orders.unitprice))
         history.append([produc_path, produc_name, deliverymethod, qty, produc_price, orders.unitprice, orders.order_date])
 
     return render_template("transact/userorderhistory.html", modal = modaltext, history = history), 200
