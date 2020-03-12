@@ -285,23 +285,19 @@ def payment():
 
         paymentitems = request.form.get("payproddetails")
         allform = request.form.to_dict(flat = False)
-        print("all fields are {}".format(allform))
-
-        # Get the remove_prodid
-        products = request.form.get("remove_prodid")
-        print("current products are {}".format(products))
+        del allform
         buy_id = current_user.id
 
         price = 0
         for item in paymentitems.split(" ")[0:-1]:
             produc = Product.query.filter_by(prodid = item[6]).first()
             producid = produc.prodid
-            price = produc.prodPrice
+            totprice = produc.prodPrice * int(item[-1])
             if item[7:] == "Deliver":
-                price += 5
+                totprice += 5
 
             seller = produc.sell_id
-            neworder = Order(buyerid = buy_id, sellerid = seller, unitprice = price, productid = producid, order_date = date.today())
+            neworder = Order(buyerid = buy_id, sellerid = seller, unitprice = totprice, productid = producid, order_date = date.today())
             db.session.add(neworder)
 
         currentuser = User.query.filter_by(id = current_user.id).first()
