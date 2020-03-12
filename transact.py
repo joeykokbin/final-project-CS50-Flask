@@ -275,7 +275,7 @@ def payment():
 
                 totalproducts.append([Product.query.filter_by(prodid = prodid).first(), delivery, qty, orderdate])
 
-                valuepayment += "prodid" + str(prodid) + delivery + " "
+                valuepayment += "prodid" + str(prodid) + delivery + "qty" + str(qty) + " "
 
         # print(totalproducts)
         return render_template("transact/payment.html", modal = modaltext, area = area, paymentmodalwords = paymentmodalwords, totalproducts = totalproducts, valuepayment = valuepayment)
