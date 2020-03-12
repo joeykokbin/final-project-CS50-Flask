@@ -285,7 +285,10 @@ def payment():
 
         paymentitems = request.form.get("payproddetails")
         allform = request.form.to_dict(flat = False)
-        print(allform)
+        # print(allform)
+
+        # Get the remove_prodid
+        products = request.form.get("remove_prodid")
 
         buy_id = current_user.id
 
