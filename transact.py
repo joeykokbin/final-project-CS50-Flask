@@ -292,10 +292,8 @@ def payment():
         for item in paymentitems.split(" ")[0:-1]:
             produc = Product.query.filter_by(prodid = item[6]).first()
             producid = produc.prodid
+            totprice = produc.prodPrice * int(item.split("qty")[-1])
 
-            print(item)
-
-            totprice = produc.prodPrice * int(item[-1])
             if item[7:] == "Deliver":
                 totprice += 5
 
