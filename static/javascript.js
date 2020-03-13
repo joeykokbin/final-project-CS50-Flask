@@ -183,7 +183,7 @@ $(document).ready(function() {
     document.getElementById("top_product_liner").appendChild(h);
   }
   $('.minus').click(function () {
-				var $input = $(this).parent().find('input');
+        var $input = $(this).parent().find('input');
 				var count = parseInt($input.val()) - 1;
 				count = count < 1 ? 1 : count;
 				$input.val(count);
@@ -351,6 +351,7 @@ function calculateprice(){
   var final = qty*price + deliver;
   var finalfloat = final.toFixed(2);
   // console.log(finalfloat);
+  document.getElementById("quantityvar").innerHTML = qty;
   document.getElementById("totcost").innerHTML = "$" + finalfloat.toString();
   document.getElementById("subcost").innerHTML = "$" + subtotal.toString();
   return true;
