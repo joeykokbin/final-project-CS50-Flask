@@ -657,12 +657,21 @@ td{
     padding: 0px 100px 0px 100px;
   }
 }
+
 @media (min-width: 1025px){
   p,#pricevar, #quantityvar, #subcost, #delicost, #totcost {
     font-size: 1.3rem;
   }
 
 }
+@media (max-width: 1400px){
+
+  #main_img > img{
+    max-width: 75%;
+    max-height: 75%;
+  }
+}
+/* Tablet and below */
 @media (max-width: 450px) {
   /* For navbar */
   .navbarfont{
