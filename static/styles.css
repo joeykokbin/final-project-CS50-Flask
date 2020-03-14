@@ -664,11 +664,17 @@ td{
   }
 
 }
+
+/* For laptop verisons */
 @media (max-width: 1400px){
 
   #main_img > img{
     max-width: 100%;
     max-height: 100%;
+  }
+
+  .payment{
+    max-width: 1200px;
   }
 }
 /* Tablet and below */
