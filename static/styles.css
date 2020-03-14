@@ -675,7 +675,7 @@ td{
 
   .payment{
     max-width: 1200px !important;
-    min-width: none !important!
+    min-width: 0px !important!;
   }
 }
 /* Tablet and below */
