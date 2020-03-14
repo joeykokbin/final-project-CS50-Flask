@@ -667,8 +667,8 @@ td{
 @media (max-width: 1400px){
 
   #main_img > img{
-    max-width: 75%;
-    max-height: 75%;
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 /* Tablet and below */
